@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../components/footer.css" />
+</head>
+<body>
+    
+    <div class="copyright"></div>
+
+    <div class="contact">
+        <p>Made By Nichlas Toldam</p>
+    </div>
+
+    
+    <script>
+        const date = new Date().getFullYear();
+        $(".copyright").append("<p>" + "&copy; " + date + "</p>");
+    </script>
+</body>
+</html>

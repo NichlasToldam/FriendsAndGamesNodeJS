@@ -1,0 +1,47 @@
+body{
+    background-color: #ffeead;;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    background-position:center;
+    text-align: center;
+    background-image: url("../../images/blank.jpg");
+    background-repeat: no-repeat;
+    color: yellow;
+    
+}
+
+form {
+    display: grid;
+    justify-items: center;
+    padding-top: 15vh;
+}
+form h1{
+    padding: 2vh;
+    color: yellow;
+    font-weight: bolder;
+    font-size: 64px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: red;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.upload-title {
+    width: 50em;
+}
+
+.description {
+    height: 6em;
+    width: 50em;
+}
+
+.tags {
+    width: 50em;
+}
+
+.submit-button {
+    margin-top: 20px;
+}

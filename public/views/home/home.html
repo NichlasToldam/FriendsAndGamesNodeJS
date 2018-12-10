@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="../../main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./home.css" />
+    <script src="../../scripts/jQuery.js"></script>
+    <script src="../../main.js"></script>
+</head>
+
+<body>
+    <div id="header"></div>
+    
+    <h1>Home</h1>
+    <p>!-- Here I want to display a grid view with all the data from the database --!</p>
+    <p>like this: </p>
+    
+    <img class="mock-up" src="../../images/mockup.png">
+
+    <div class="gamesDisplay"></div>
+    
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // JQuery (makes is get all games from http://localhost:3000/games/)
+        
+        $(document).ready(() => {
+            $.ajax({
+                url: 'games/',
+                type: 'GET',
+                dataType: 'json',
+                success: (data) => {
+                    console.log('You recieved some data: ', data);
+                    $('.gamesDisplay').html('All games: ' + data); //select div with id games
+                    
+                }
+            });
+        });
+        
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+#footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    width: 100%;
+    margin-top: 30px;
+    position: absolute;
+    bottom: 0;
+    background-color: yellow;
+    color: red;
+    font-weight: bold;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    position: fixed; /* Set the navbar to fixed position */
+}
+
+.contact {
+    margin-right: 40px;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./upload.css" />
+    <script src="../../scripts/jQuery.js"></script>
+    <script src="../../main.js"></script>
+
+</head>
+<body>
+    <div id="header"></div>
+    
+    <div class="container">
+        <h1>Upload a Game</h1>
+        <p>!-- here I want to submit the form data to the database by the post method in/api/routes/games.js --! </p>
+        
+        <form encType="multipart/form-data" action="/games" method="POST" onsubmit="return submittingForm()">
+            <p>Title</p>
+            <input class="upload-title" name="title" placeholder="title">
+
+            <p>Production Year</p>
+            <input class="year" name="year" placeholder="title">
+
+            <p>Description</p>
+            <textarea class="description" name="description" placeholder="description"></textarea>
+
+            <p>Category</p>
+                <select class="category">
+                    <option value="action">action</option>
+                    <option value="action-adventure">action-adventure</option>
+                    <option value="adventure">adventure</option>
+                    <option value="role-play">role-play</option>
+                    <option value="simulation">simulation</option>
+                    <option value="strategy">strategy</option>
+                    <option value="sport">sport</option>
+                </select>
+            <br/>
+
+            <p>platform</p>
+            <select class="platform">
+                    <option value="pc">PC</option>
+                    <option value="ps">Playstation (Original)</option>
+                    <option value="ps2">Playstation 2</option>
+                    <option value="ps3">Playstation 3</option>
+                    <option value="ps4">Playstation 4</option>
+                    <option value="xbox">Xbox (Original)</option>
+                    <option value="xbox360">Xbox 360</option>
+                    <option value="xboxone">Xbox One</option>
+                    <option value="wii">Nintendo Wii</option>
+                    <option value="switch">Nintendo Switch</option>
+                </select>
+            
+            <p>Owner of the Game</p>
+            <input class="owner" name="owner" placeholder="owner">
+
+            <br>
+            <input class="gameImage" type="file" name="gameImage" onchange="fileAdded(this.files)">
+
+            <br/>
+            <br/>
+            
+            <button class="submit-button" type="submit">Submit Game</button>
+        </form>    
+    </div>
+    
+    <div id="footer"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // JQuery
+        $(document).ready(() => {
+            console.log('Hello browser');
+        });
+
+        $("form").submit((event) => {
+        //event.preventDefault();
+
+        const title         = $(".upload-title").val();
+        const year          = $(".year").val();
+        const description   = $(".description").val();
+        const category      = $(".category").val();
+        const platform      = $(".platform").val();
+        const owner         = $(".owner").val();
+        const gameImage     = $(".gameImage").val();
+        
+        console.log(title, year, description, category, platform, owner, gameImage);
+        
+        // POST
+        $.ajax({
+            "url": "games/",
+            "method": "POST",
+            "data": {
+                title:          title,
+                year:           year,
+                description:    description,
+                category:       category,
+                platform:       platform,
+                owner:          owner,
+                gameImage:      gameImage
+            }
+        }).done(function(response) {
+            console.log("response: ", response);
+        });
+    });
+    setInterval(function() {
+        // run the code here after each interval   
+    }, 2000);
+    </script>
+</body>
+
+</html>

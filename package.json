@@ -1,0 +1,23 @@
+{
+  "name": "1_gamesandfriends",
+  "version": "1.0.0",
+  "description": "A application use for sharing physical games between friends.",
+  "main": "index.js",
+  "start": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nichlas Buer Toldam",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "jsonwebtoken": "^8.4.0",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.3.15",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1"
+  }
+}
