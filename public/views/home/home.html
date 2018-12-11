@@ -21,61 +21,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        // JQuery (makes is get all games from http://localhost:3000/games/)
-        /*
-        $(document).ready(() => {
-            $.ajax({
-                url: 'games/',
-                type: 'GET',
-                dataType: 'json',
-                success: (data) => {
-                    console.log('You recieved some data: ', data);
-                    $('.gamesDisplay').html('All games: ' + data); //select div with id games
-                    
-                }
-            });
-        });
-        */
-       /*
-       $(document).ready(() => 
-       {
-           
-            $.ajax(
-                {
-                url: 'games/', // http://localhost:3000/games
-                method: 'GET',
-                dataType: 'json',
-                success: (data) => { // data is one json object containing an array of json objects
-                    let games = data.game; //array with game objects
-                    //console.log('You recieved some data: ', data); 
-                    $('.data').html('All games: ' + data.game); //select div with id games
-                    const gameCard = ""
-                    
-                    games.forEach(game => {
-                        console.log(game);
-                        let title = game.title;
-                        let year = game.year;
-                        let description = game.description;
-                        let owner = game. owner;
-                        let gameImage = game.gameImage;
-                        
-
-                        
-    
-
-                        const gameCard =    "<div class='video-card'>" +
-                                                "<h1>" + title + "</h1>" +
-                                            "</div>";      
-                        
-                    });
-                    $(".gamesDisplay").append(gameCard); 
-
-            
-                }
-            });
-       });
-    */
-   
+    // JQuery (makes is get all games from http://localhost:3000/games/)
     $(document).ready(() => {
     $.ajax({
         url: 'games/', //http://localhost:3000/games

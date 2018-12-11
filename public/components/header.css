@@ -44,12 +44,21 @@ margin-top: 30px; /* Add a top margin to avoid content overlay */
     color: yellow;
     font-weight: bolder;
     font-size: 6vh;
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: red;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     text-align: center
 }
-
+.nav-image h2{
+    margin-top: -5vh;
+    color: yellow;
+    font-weight: bolder;
+    font-size: 4vh;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: red;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-align: center
+}
 .logo-image {
     float: left;
     width: 4vh;
