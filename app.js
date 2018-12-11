@@ -10,6 +10,8 @@ const gamesRoutes = require('./api/routes/games');
 const ordersRoutes = require('./api/routes/orders');
 const usersRoutes = require('./api/routes/user');
 
+
+
 // CONNECT TO DATEBASE
 mongoose.connect('mongodb://localhost:27017/gamesandfriends', { useNewUrlParser: true });
 
@@ -30,7 +32,7 @@ app.get('/login', (req, res) => {
 // log our request
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'))
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/')));
 //app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false})); // will extract urlencoded data and make it readable 
 app.use(bodyParser.json()) // will extract json data and make it readable 

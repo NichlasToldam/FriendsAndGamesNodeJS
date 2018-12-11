@@ -6,16 +6,32 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../../main.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="./login.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./views/login/login.css" />
     <script src="../../scripts/jQuery.js"></script>
     <script src="../../main.js"></script>
 </head>
 <body>
     <div id="header"></div>
 
-    <h1>Login</h1>
-    <p>!-- here I want to submit the form data to the database by the post method in/api/routes/user.js --!</p>
-    
+    <div class="container">
+        <section id="content">
+            <form class="login-form" action="/user/login" method="post">
+                <h1>Login Form</h1>
+                <div>
+                    <input class="email" type="text" placeholder="Email" required="" id="email" />
+                </div>
+                <div>
+                    <input class="password" type="password" placeholder="Password" required="" id="password" />
+                </div>
+                <div>
+                    <input type="submit" value="Log in" />
+                </div>
+            </form><!-- form -->
+        </section><!-- content -->
+    </div><!-- container -->
+
+
+    <!--
     <div class="container">
         <form class="login-form" action="/user/login" method="post">
             <label for="email"><b>Email</b></label>
@@ -30,6 +46,7 @@
             <button type="submit">Login</button>
         </form>
     </div>
+    -->
 
     <div id="footer"></div>
 

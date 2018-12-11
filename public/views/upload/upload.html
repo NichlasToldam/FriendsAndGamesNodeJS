@@ -4,24 +4,22 @@
     <meta charset="utf-8" />
     <title>Upload</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./upload.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./views/upload/upload.css" />
     <script src="../../scripts/jQuery.js"></script>
     <script src="../../main.js"></script>
 
 </head>
 <body>
     <div id="header"></div>
-    
+
     <div class="container">
-        <h1>Upload a Game</h1>
-        <p>!-- here I want to submit the form data to the database by the post method in/api/routes/games.js --! </p>
-        
         <form encType="multipart/form-data" action="/games" method="POST" onsubmit="return submittingForm()">
             <p>Title</p>
+            
             <input class="upload-title" name="title" placeholder="title">
 
             <p>Production Year</p>
-            <input class="year" name="year" placeholder="title">
+            <input class="year" name="year" placeholder="year">
 
             <p>Description</p>
             <textarea class="description" name="description" placeholder="description"></textarea>
@@ -57,8 +55,6 @@
 
             <br>
             <input class="gameImage" type="file" name="gameImage" onchange="fileAdded(this.files)">
-
-            <br/>
             <br/>
             
             <button class="submit-button" type="submit">Submit Game</button>
