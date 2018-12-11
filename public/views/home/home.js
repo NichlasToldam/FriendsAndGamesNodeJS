@@ -1,8 +1,8 @@
+/*
 $(document).ready(() => {
     $.ajax({
         url: 'games/',
-        method: 'GET',
-        dataType: 'json'
+        method: 'GET'
     })
     .done((games) => {
         games.forEach((game) => {
@@ -41,3 +41,4 @@ $(document).ready(() => {
         });
     });
 });
+*/

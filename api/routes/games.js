@@ -47,7 +47,7 @@ router.get('/', (req, res, next) => {//handles incomming get request. ('URL', Ca
         //console.log(docs); //PRINT EVERY DOCS IN THE DATABASE
 
         const response = {
-            count: docs.length, //number of elements in the database
+            /*count: docs.length, //number of elements in the database*/
             game: docs.map(doc => {
                 return{
                     _id:            doc._id,

@@ -6,6 +6,8 @@
     <title>Home</title>
     <link rel="stylesheet" type="text/css" media="screen" href="../../main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./views/home/home.css" />
+    <script src="./home.js"></script>
+    <script src="./views/home/home.js"></script>
     <script src="../../scripts/jQuery.js"></script>
     <script src="../../main.js"></script>
 </head>
@@ -13,31 +15,14 @@
 <body>
     <div id="header"></div>
 
-    <img class="mock-up" src="../../images/mockup.png">
-
     <div class="gamesDisplay"></div>
-    
-    <div class="container">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-        <div>11</div>
-        <div>12</div>
-    </div>
-
+  
     <div id="footer"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         // JQuery (makes is get all games from http://localhost:3000/games/)
-        
+        /*
         $(document).ready(() => {
             $.ajax({
                 url: 'games/',
@@ -50,8 +35,76 @@
                 }
             });
         });
-        
+        */
+       /*
+       $(document).ready(() => 
+       {
+           
+            $.ajax(
+                {
+                url: 'games/', // http://localhost:3000/games
+                method: 'GET',
+                dataType: 'json',
+                success: (data) => { // data is one json object containing an array of json objects
+                    let games = data.game; //array with game objects
+                    //console.log('You recieved some data: ', data); 
+                    $('.data').html('All games: ' + data.game); //select div with id games
+                    const gameCard = ""
+                    
+                    games.forEach(game => {
+                        console.log(game);
+                        let title = game.title;
+                        let year = game.year;
+                        let description = game.description;
+                        let owner = game. owner;
+                        let gameImage = game.gameImage;
+                        
 
+                        
+    
+
+                        const gameCard =    "<div class='video-card'>" +
+                                                "<h1>" + title + "</h1>" +
+                                            "</div>";      
+                        
+                    });
+                    $(".gamesDisplay").append(gameCard); 
+
+            
+                }
+            });
+       });
+    */
+   
+    $(document).ready(() => {
+    $.ajax({
+        url: 'games/', //http://localhost:3000/games
+        method: 'GET'
+    })
+    .done((data) => {// data is one json object containing an array of json objects
+        let games = data.game; //array with game objects
+       
+        games.forEach((game) => {
+            console.log(game);
+            let title = game.title;
+            let year = game.year;
+            let description = game.description;
+            let owner = game. owner;
+            let gameImage = game.gameImage;
+
+            const gameCard =    "<div class='video-card'>" +
+                                    "<h1>" + title + "</h1>" +
+                                    "<img src='" + gameImage + "'>" +
+                                    "<p> <b>Production Year:</b> " + year + "</p>" +
+                                    "<p> <b>Owner:</b> " + owner + "</p>" +
+                                    "<p> <b>description:</b></p>" +
+                                    "<p> " + description + "</p>" +
+                                "</div>";   
+
+        $(".gamesDisplay").append(gameCard);  
+        });
+    });
+});
        
     </script>
 </body>
