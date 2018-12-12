@@ -40,14 +40,14 @@ margin-top: 30px; /* Add a top margin to avoid content overlay */
     background-repeat: no-repeat;
 }
 .nav-image h1{
-    padding-top: 6vh;
+    padding-top: 5vh;
     color: yellow;
     font-weight: bolder;
     font-size: 6vh;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: red;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
-    text-align: center
+    text-align: center;
 }
 .nav-image h2{
     margin-top: -5vh;

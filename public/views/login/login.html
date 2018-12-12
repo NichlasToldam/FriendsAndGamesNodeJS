@@ -26,31 +26,17 @@
                 <div>
                     <input type="submit" value="Log in" />
                 </div>
+                <div class="alert-box"></div>
             </form><!-- form -->
         </section><!-- content -->
     </div><!-- container -->
 
 
-    <!--
-    <div class="container">
-        <form class="login-form" action="/user/login" method="post">
-            <label for="email"><b>Email</b></label>
-            <br>
-            <input class="email" type="text" placeholder="Enter email" name="email" required>
-            <br>
-            <label for="Password"><b>Password</b></label>
-            <br>
-            <input class="password" type="password" placeholder="Enter Password" name="password" required>
-            <br>
-            <br>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-    -->
 
     <div id="footer"></div>
 
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.4/sweetalert2.all.min.js"></script>
+    <script>        
         // JQuery
         $(document).ready(() => {
             console.log('Hello browser');
@@ -74,6 +60,12 @@
                 }
             }).done(function(response) {
                 console.log("response: ", response);
+                Swal("Your log-in was successful");
+            
+            }).fail(function(response) {
+                console.log("response: ", response);
+                Swal("Error code: " + response.status + "\n\n" + response.responseJSON.message);
+                //Swal("Your log-in failed! Please check if your email and password is correct. If you do not have a user yet. Then create one under the 'signup' tab.");
             });
         });
         setInterval(() => {

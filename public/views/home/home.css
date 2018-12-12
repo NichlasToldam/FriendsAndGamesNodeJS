@@ -2,17 +2,18 @@
 
 .gamesDisplay {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 5px;
   margin: 20px 60px 0px 60px;  
-  justify-items: left; 
+	justify-items: left; 
+	/*background-color: blueviolet;*/
   
 }
 .gamesDisplay img {
 	height: auto; 
-    width: auto; 
-	max-width: 245px; 
-	min-height: 30vh;
+  width: auto; 
+	max-width: 280px; 
+	min-height: 35vh;
 }
 
 .gamesDisplay h1 {

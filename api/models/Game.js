@@ -9,8 +9,8 @@ const gameSchema = new Schema({
     description:    {type: String, required: true},
     category:       {type: String},
     platform:       {type: String},
-    owner:          {type: String},
-    gameImage:      {type: String} 
+    owner:          {type: String, required: true},
+    gameImage:      {type: String, required: true} 
 });
 
 module.exports = mongoose.model('Game', gameSchema);

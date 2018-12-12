@@ -99,6 +99,10 @@
             }
         }).done(function(response) {
             console.log("response: ", response);
+        })
+        .fail(function(response) {
+            console.log("response: ", response);
+            Swal("Error code: " + response.status + "\n\n" + response.responseJSON.message );
         });
     });
     setInterval(function() {
