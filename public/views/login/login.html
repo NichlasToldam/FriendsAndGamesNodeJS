@@ -60,7 +60,8 @@
                 }
             }).done(function(response) {
                 console.log("response: ", response);
-                Swal("Your log-in was successful");
+                //Swal("Your log-in was successful");
+                window.location.href = "http://localhost:3000/";
             
             }).fail(function(response) {
                 console.log("response: ", response);

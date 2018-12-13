@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../views/rent/rent.css" />
+    <script src="../../scripts/jQuery.js"></script>
+    <script src="../../main.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="displayGame"></div>
+
+    <div id="footer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.4/sweetalert2.all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>        
+    // JQuery
+    $(document).ready(() => {
+        console.log('Hello browser');
+        let urlParams = new URLSearchParams(window.location.search);
+            let gameId = urlParams.get('id');
+
+            //console.log("GAME ID", gameId);
+            let myUrl = "../games/" + gameId;
+            console.log(myUrl);
+            
+
+        $.ajax({
+            url: myUrl, 
+            method: 'GET'
+        })
+        .done((data) => {// data is one json object containing an array of json objects
+            //let games = data.game; //array with game objects
+            console.log(data);
+            
+            
+            let title       = data.title;
+            let year        = data.year;
+            let description = data.description;
+            let owner       = data.owner;
+            let gameImage   = "../" + data.gameImage;
+            let id          = data._id;
+
+            const gameCard =    "<div class='video-card'>" +
+                                    "<h1>Rent a Game</h1>" +
+                                    "<img src='"+ gameImage +"'></img>" +
+                                    "<p> <b>Title</b> <br>"  + title + "</p>" +
+                                    "<p> <b>Year</b> <br>" + year + "</p>" +
+                                    "<p> <b>Description</b> <br>" + description + "</p>" +
+                                    "<p> <b>Owner</b> <br>" + owner + "</p>" +
+                                    "<button> Rent This Game</button>"
+                                "</div>";
+
+            $(".displayGame").append(gameCard); 
+            
+        })
+        .fail(function(response) {
+            //console.log("response: ", response);
+            //Swal("Error code: " + response.status + "\n\n" + response.responseJSON.message);
+        });
+    });
+    setInterval(() => {
+        // run the code here after each interval   
+    }, 2000);
+
+    </script>
+</body>
+</html>

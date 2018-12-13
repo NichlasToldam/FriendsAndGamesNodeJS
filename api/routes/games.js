@@ -73,7 +73,7 @@ router.get('/', (req, res, next) => {//handles incomming get request. ('URL', Ca
 
 // POST - HANDLE POST REQUEST
 //          Path        middleware             main handler  
-router.post("/", /*checkAuth,*/ upload.single('gameImage'), (req, res, next) => {//handles incomming get request. ('URL', Callback functiom). this ('/') is the same as /games/ 
+router.post("/", checkAuth, upload.single('gameImage'), (req, res, next) => {//handles incomming get request. ('URL', Callback functiom). this ('/') is the same as /games/ 
     console.log("req body form: ", req.body);
     
     const game = new Game({ //game object help created by mongoose

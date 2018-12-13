@@ -27,6 +27,9 @@ app.get('/signup', (req, res) => {
 app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/public/views/login/login.html');
 }); 
+app.get('/rent', (req, res) => {
+    res.sendFile(__dirname + '/public/views/rent/rent.html');
+}); 
 
 // Middleware for:
 // log our request

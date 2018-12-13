@@ -1,0 +1,31 @@
+.displayGame {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr));
+    grid-gap: 5px;
+    margin: 0px 100px 0px 100px;  
+    padding: 0px 0vw 10vh 0vw;
+    text-align: center;
+    justify-items: center;
+    /*background-color: blueviolet;*/
+
+}
+.displayGame img {
+    height: auto; 
+    width: auto; 
+    min-height: 35vh;
+    max-width: 35vw; 
+}
+
+.displayGame h1 {
+    margin: 5vh 0px 0px 0px; 
+    min-height: 5vh;
+    text-align: center;
+}
+
+.displayGame p {
+    padding: 0vw 0vw 0px 0px; 
+    /*background-color: aquamarine;*/
+    min-height: 5vh;
+    text-align: left;
+}
+  
