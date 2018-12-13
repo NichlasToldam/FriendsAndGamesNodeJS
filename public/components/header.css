@@ -15,7 +15,7 @@ color: red;
 font-weight: bold;
 text-align: center;
 font-family: "Comic Sans MS", "Comic Sans", cursive;
-padding: 14px 16px;
+padding: 20px 50px;
 width: 4vh;
 height: 2vh;
 text-decoration: none;
@@ -63,3 +63,4 @@ margin-top: 30px; /* Add a top margin to avoid content overlay */
     float: left;
     width: 4vh;
 }
+

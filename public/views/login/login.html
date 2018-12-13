@@ -26,6 +26,9 @@
                 <div>
                     <input type="submit" value="Log in" />
                 </div>
+                <div>
+                    <input id="logoutBtn" type="submit" value="Log out" />
+                </div>
                 <div class="alert-box"></div>
             </form><!-- form -->
         </section><!-- content -->
@@ -60,9 +63,12 @@
                 }
             }).done(function(response) {
                 console.log("response: ", response);
+                let token = response.token;
+
+                sessionStorage.setItem('newTokenKey', token)
                 //Swal("Your log-in was successful");
                 window.location.href = "http://localhost:3000/";
-            
+
             }).fail(function(response) {
                 console.log("response: ", response);
                 Swal("Error code: " + response.status + "\n\n" + response.responseJSON.message);
@@ -72,6 +78,12 @@
         setInterval(() => {
             // run the code here after each interval   
         }, 2000);
+
+        function clearToken(){
+            sessionStorage.removeItem('newTokenKey');
+            Swal("You are now logged out");
+        }
+        $("#logoutBtn").click(clearToken);
     </script>
 </body>
 </html>

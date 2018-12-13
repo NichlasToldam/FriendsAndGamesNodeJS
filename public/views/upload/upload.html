@@ -65,49 +65,62 @@
     <div id="footer"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.4/sweetalert2.all.min.js"></script>
     <script>
         // JQuery
         $(document).ready(() => {
             console.log('Hello browser');
-        });
+            let isLoggedIn = sessionStorage.getItem('newTokenKey')
 
-        $("form").submit((event) => {
-        //event.preventDefault();
 
-        const title         = $(".upload-title").val();
-        const year          = $(".year").val();
-        const description   = $(".description").val();
-        const category      = $(".category").val();
-        const platform      = $(".platform").val();
-        const owner         = $(".owner").val();
-        const gameImage     = $(".gameImage").val();
-        
-        console.log(title, year, description, category, platform, owner, gameImage);
-        
-        // POST
-        $.ajax({
-            "url": "games/",
-            "method": "POST",
-            "data": {
-                title:          title,
-                year:           year,
-                description:    description,
-                category:       category,
-                platform:       platform,
-                owner:          owner,
-                gameImage:      gameImage
+            if (isLoggedIn != null) { // check if logged in
+                $("form").submit((event) => {
+                //event.preventDefault();
+
+                const title         = $(".upload-title").val();
+                const year          = $(".year").val();
+                const description   = $(".description").val();
+                const category      = $(".category").val();
+                const platform      = $(".platform").val();
+                const owner         = $(".owner").val();
+                const gameImage     = $(".gameImage").val();
+                
+                console.log(title, year, description, category, platform, owner, gameImage);
+                
+                // POST
+                $.ajax({
+                    "url": "games/",
+                    "method": "POST",
+                    "data": {
+                        title:          title,
+                        year:           year,
+                        description:    description,
+                        category:       category,
+                        platform:       platform,
+                        owner:          owner,
+                        gameImage:      gameImage
+                    }
+                }).done(function(response) {
+                    console.log("response: ", response);
+                })
+                .fail(function(response) {
+                    console.log("response: ", response);
+                    Swal("Error code: " + response.status + "\n\n" + response.responseJSON.message );
+                });
+                });
+                setInterval(function() {
+                    // run the code here after each interval   
+                }, 2000);
+                
+            } else {
+                Swal("You need to be logged in before you can upload a game"); 
+                setInterval(function() {
+                    window.location.href = "http://localhost:3000/login"  
+                }, 2000);
             }
-        }).done(function(response) {
-            console.log("response: ", response);
-        })
-        .fail(function(response) {
-            console.log("response: ", response);
-            Swal("Error code: " + response.status + "\n\n" + response.responseJSON.message );
         });
-    });
-    setInterval(function() {
-        // run the code here after each interval   
-    }, 2000);
+
+        
     </script>
 </body>
 
