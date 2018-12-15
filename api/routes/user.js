@@ -32,6 +32,7 @@ router.post('/signup', (req, res, next) => {
                     email: req.body.email, //GET INPUT FROM FORM
                     password: hash
                 });
+                
                 user
                 .save()
                 .then(result => {

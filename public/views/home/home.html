@@ -19,42 +19,41 @@
   
     <div id="footer"></div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
     // JQuery (makes is get all games from http://localhost:3000/games/)
-$(document).ready(() => {
-    $.ajax({
-        url: 'games/', //http://localhost:3000/games
-        method: 'GET'
-    })
-    .done((data) => {// data is one json object containing an array of json objects
-        let games = data.game; //array with game objects
-    
-        games.forEach((game) => {
-            console.log(game);
-            
-            let title       = game.title;
-            let year        = game.year;
-            let description = game.description;
-            let owner       = game.owner;
-            let gameImage   = game.gameImage;
-            let id          = game._id;
+    $(document).ready(() => {
+        $.ajax({
+            url: 'games/', //http://localhost:3000/games
+            method: 'GET'
+        })
+        .done((data) => {// data is one json object containing an array of json objects
+            let games = data.game; //array with game objects
+        
+            games.forEach((game) => {
+                console.log(game);
+                
+                let title       = game.title;
+                let year        = game.year;
+                let description = game.description;
+                let owner       = game.owner;
+                let gameImage   = game.gameImage;
+                let id          = game._id;
 
-            const gameCard =    "<a href='/rent/?id=" + id + "'>" +
-                                    "<div class='video-card'>" +
-                                        "<h1>" + title + "</h1>" +
-                                        "<img src='" + gameImage + "'>" +
-                                        "<p> <b>Production Year:</b> " + year + "</p>" +
-                                        "<p> <b>Owner:</b> " + owner + "</p>" +
-                                        "<p> <b>description:</b></p>" +
-                                        "<p> " + description + "</p>" +
-                                    "</div>"  
-                                "</a>";
+                const gameCard =    "<a href='/rent/?id=" + id + "'>" +
+                                        "<div class='video-card'>" +
+                                            "<h1>" + title + "</h1>" +
+                                            "<img src='" + gameImage + "'>" +
+                                            "<p> <b>Production Year:</b> " + year + "</p>" +
+                                            "<p> <b>Owner:</b> " + owner + "</p>" +
+                                            "<p> <b>description:</b></p>" +
+                                            "<p> " + description + "</p>" +
+                                        "</div>"  
+                                    "</a>";
 
-        $(".gamesDisplay").append(gameCard);  
+            $(".gamesDisplay").append(gameCard);  
+            });
         });
     });
-});
        
     </script>
 </body>

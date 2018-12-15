@@ -34,7 +34,7 @@ app.get('/rent', (req, res) => {
 // Middleware for:
 // log our request
 app.use(morgan('dev'));
-app.use('/uploads', express.static('uploads'))
+app.use('/uploads', express.static('uploads'));
 app.use(express.static(path.join(__dirname, 'public/')));
 //app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false})); // will extract urlencoded data and make it readable 

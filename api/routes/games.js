@@ -9,21 +9,21 @@ const path = require('path');
 
 // MULTER
 const storage = multer.diskStorage({
-    destination: (req, file, cd) =>{
-        cd(null, './uploads/');
+    destination: (req, file, cb) =>{
+        cb(null, './uploads/');
     },
     filename: (req, file, cb) =>{
         cb(null, file.originalname);
     }
 });
 
-const fileFilter = (req, file, cd) => {
+const fileFilter = (req, file, cb) => {
     if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
         // Accepts the file
-        cd(null, true) 
+        cb(null, true) 
     }else{
         //reject if it not valid
-        cd(null, false)
+        cb(null, false)
     }  
 };
 
@@ -42,7 +42,6 @@ router.get('/', (req, res, next) => {//handles incomming get request. ('URL', Ca
     
     Game.find()
         .select('_id year title description category platform owner gameImage') //What I wanna see in 
-        .exec() // to get a true promise
         .then(docs => {
         //console.log(docs); //PRINT EVERY DOCS IN THE DATABASE
 
@@ -72,8 +71,8 @@ router.get('/', (req, res, next) => {//handles incomming get request. ('URL', Ca
 });
 
 // POST - HANDLE POST REQUEST
-//          Path        middleware             main handler  
-router.post("/", checkAuth, upload.single('gameImage'), (req, res, next) => {//handles incomming get request. ('URL', Callback functiom). this ('/') is the same as /games/ 
+//          Path   middleware         middleware             main handler  
+router.post("/", /*checkAuth,*/ upload.single('gameImage'), (req, res, next) => {//handles incomming get request. ('URL', Callback functiom). this ('/') is the same as /games/ 
     console.log("req body form: ", req.body);
     
     const game = new Game({ //game object help created by mongoose
@@ -87,10 +86,10 @@ router.post("/", checkAuth, upload.single('gameImage'), (req, res, next) => {//h
         gameImage:      req.file.path,
     });
     game
-        .save()
+        .save() // saves JSON in DB
         .then(result => {
             console.log(result);
-            res.status(201).json({
+            res.status(201).json({ //201 Created
                 message: "Created game successfully",
                 createdGame: {
                     _id:            result._id,
@@ -107,14 +106,14 @@ router.post("/", checkAuth, upload.single('gameImage'), (req, res, next) => {//h
                 }
             });
         })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json({
-          error: err
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
         });
-      });
     res.redirect("/");
-  });
+});
 
 
 // POST by id - HANDLE POST REQUEST
@@ -153,7 +152,6 @@ router.patch('/:gameId', /*checkAuth,*/ (req, res, next) =>{
 router.delete('/:gameId', /*checkAuth,*/ (req, res, next) =>{
     const id = req.param.gameId; //gets id from the url
     Game.findOneAndDelete(id)//removes an object that has the id provided in the url
-        .exec()
         .then(result => {
             res.status(200).json(result)
         })
